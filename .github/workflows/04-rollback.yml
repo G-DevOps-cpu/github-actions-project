@@ -1,0 +1,35 @@
+name: Rollback production
+on:
+  workflow_dispatch:
+    inputs:
+      digest:
+        description: 'Previously approved image digest: sha256 followed by colon and 64 hex characters'
+        required: true
+        type: string
+permissions:
+  contents: read
+concurrency:
+  group: shopfast-production
+  cancel-in-progress: false
+jobs:
+  rollback:
+    if: vars.ENABLE_DEPLOY == 'true' && github.ref == 'refs/heads/main'
+    environment: production
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: Restore a previously approved image
+        env:
+          REPOSITORY: ${{ github.repository }}
+          DIGEST: ${{ inputs.digest }}
+          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+          DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
+          DEPLOY_SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+          DEPLOY_KNOWN_HOSTS: ${{ secrets.DEPLOY_KNOWN_HOSTS }}
+        run: |
+          [[ "$DIGEST" =~ ^sha256:[a-f0-9]{64}$ ]] || exit 1
+          export IMAGE="ghcr.io/${REPOSITORY,,}@$DIGEST"
+          bash scripts/ssh-deploy.sh

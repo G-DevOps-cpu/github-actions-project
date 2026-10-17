@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ShopFast | The developer's desk</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/shop.js" defer></script>
+</head>
+<body>
+  <header class="topbar"><a class="brand" href="/">ShopFast<span>.</span></a><nav aria-label="Main"><a href="#collection">Collection</a><a href="#deployment">Your deployment</a><a href="#basket">Basket <span id="count">0</span></a></nav></header>
+  <main>
+    <section class="hero">
+      <div><p class="eyebrow">GOOD TOOLS. GREAT IDEAS.</p><h1>A little upgrade<br>for your everyday.</h1><p class="intro">Thoughtful essentials for the desk where you learn, build, and ship your next big idea.</p><a class="button" href="#collection">Explore the collection <span aria-hidden="true">↗</span></a><p class="note">A hands-on storefront for your CI/CD classroom.</p></div>
+      <div class="hero-art" aria-hidden="true"><div class="orbit"></div><div class="keyboard">⌘<span>MAKE SOMETHING GREAT</span></div><span class="art-label">THE DEVELOPER'S DESK / 01</span><div class="disc"></div></div>
+    </section>
+    <section id="collection"><div class="section-heading"><div><p class="eyebrow">THE COLLECTION</p><h2>Small essentials. Big potential.</h2></div><span>03 carefully chosen favourites</span></div>
+      <div class="products">
+        <article class="product"><div class="product-art purple" aria-hidden="true"><div class="notebook">IDEAS<br><small>START HERE.</small></div><span>01</span></div><div class="product-title"><h3>The Idea Notebook</h3><strong>₦4,500</strong></div><p>A fresh page for your next breakthrough.</p><button data-product="notebook">Add to basket <span aria-hidden="true">+</span></button></article>
+        <article class="product"><div class="product-art peach" aria-hidden="true"><div class="mug">ship it.</div><span>02</span></div><div class="product-title"><h3>The Shipping Mug</h3><strong>₦6,000</strong></div><p>For early builds and late-night inspiration.</p><button data-product="mug">Add to basket <span aria-hidden="true">+</span></button></article>
+        <article class="product"><div class="product-art green" aria-hidden="true"><div class="mat"><span>&lt;/&gt;</span></div><span>03</span></div><div class="product-title"><h3>The Focus Desk Mat</h3><strong>₦12,000</strong></div><p>A comfortable home for your best work.</p><button data-product="mat">Add to basket <span aria-hidden="true">+</span></button></article>
+      </div>
+    </section>
+    <section class="lower-grid">
+      <div id="deployment" class="deployment"><p class="eyebrow">BUILT BY YOU. SHIPPED WITH ACTIONS.</p><h2>Your code is live.</h2><p>Change the heading or colours, push a commit, and watch your pipeline bring the update here.</p><div class="health-row"><span id="health" role="status">Checking application health…</span><button id="refresh" class="text-button">Check again</button></div><a href="/health">View health JSON ↗</a></div>
+      <aside id="basket" class="basket"><p class="eyebrow">YOUR PICKS</p><h2>Demo basket</h2><ul id="items"><li>Your basket is empty. Find a favourite above.</li></ul><div class="total"><span>Total</span><strong id="total">₦0</strong></div><button id="clear" class="text-button" disabled>Clear basket</button><p class="note">Classroom demo only. No checkout or payments. Basket resets when you refresh.</p><p id="announcement" class="sr-only" role="status" aria-live="polite"></p></aside>
+    </section>
+  </main>
+  <footer><a class="brand" href="/">ShopFast<span>.</span></a><span>Learn it. Build it. Ship it.</span><span>Module 08 · CI/CD classroom</span></footer>
+</body>
+</html>
