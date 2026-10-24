@@ -31,6 +31,10 @@ npm run check
 npm test
 npm run build
 npm start
+
+To clean up after build
+Press Ctrl C to stop the running application
+type rm -rf dist (This will remove the build files)
 ```
 
 Open **http://localhost:3000/** to see the ShopFast website. Students can browse three products, add/remove items in a demo basket, and check the running application's health. The basket stays in browser memory and resets on refresh; there are no payments or real orders.
